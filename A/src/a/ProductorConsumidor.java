@@ -35,22 +35,31 @@ public class ProductorConsumidor {
     {  
         DatagramSocket socket;
         boolean fin = false;
+        int id_productor = 1;
         
         
         try {
         System.out.println("Iniciando Servidor...");
         socket = new DatagramSocket(6000);
         contenedor = new Contenedor();
+        int numero = contenedor.cantidadproductos();
+        System.out.println("Lo que devuelve :"+Integer.toString(numero));
         System.out.println("El estado actual del inventario es: "+contenedor.estadoInventario());
                     do { 
                     
                     
-                    productor = new Thread(new Productor(contenedor, 1));
+                    	// se pasa la instancia del contenedor y la id del productor
+                    productor = new Thread(new Productor(contenedor, id_productor)); 
+                    
                     
                     byte[] mensaje_bytes = new byte[1024];
                     String mensaje ="";
                     mensaje = new String(mensaje_bytes);
                     String mensajehilo ="";
+                    
+                    /**
+                     * Preparacion para recibir el paquete 
+                     */
                     
                     DatagramPacket paquete = new DatagramPacket(mensaje_bytes,1024);
                     DatagramPacket envpaquete = new DatagramPacket(mensaje_bytes,1024);
@@ -76,7 +85,10 @@ public class ProductorConsumidor {
                     System.out.println("Puerto origen del mensaje: " + paquete.getPort());
                     System.out.println("IP de origen             : " + paquete.getAddress().getHostAddress());
                     System.out.println("Puerto destino del mensaje:" + socket.getLocalPort());
-                    System.out.println();*/
+                    System.out.println();
+                    
+                    */
+                    
                      mensaje= new String(paquete.getData());
                     int long_men=mensaje.length();
                     int lon_ult_men=long_men-bytesRec;

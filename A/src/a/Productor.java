@@ -14,7 +14,7 @@ import java.util.Random;
 
     public class Productor implements Runnable
 {
-    private final int aleatorio;
+    private final int cantidad;
     private final Contenedor contenedor;
     private final int idproductor;
     private final int TIEMPOESPERA = 1500;
@@ -28,7 +28,7 @@ import java.util.Random;
     {
         this.contenedor = contenedor;
         this.idproductor = idproductor;
-        aleatorio =5;
+        cantidad =5;
     }
 
     @Override
@@ -39,7 +39,7 @@ import java.util.Random;
     {
         while(Boolean.TRUE)
         {
-            int poner = aleatorio;
+            int poner =  cantidad;
             contenedor.put(poner);
             System.out.println("El productor " + idproductor + " pone: " + poner);
             contenedor.productosEntrantes(poner);
