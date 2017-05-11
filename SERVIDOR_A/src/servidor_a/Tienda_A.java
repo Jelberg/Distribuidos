@@ -58,18 +58,18 @@ public class Tienda_A {
 
 
             
-            byte[] mensaje_bytes = new byte[1024];
+            byte[] mensaje_bytes = new byte[256];
             String mensaje ="";
             mensaje = new String(mensaje_bytes);
             String mensajehilo ="";
 
-            DatagramPacket paquete = new DatagramPacket(mensaje_bytes,1024);
-            DatagramPacket envpaquete = new DatagramPacket(mensaje_bytes,1024);
+            DatagramPacket paquete = new DatagramPacket(mensaje_bytes,256);
+            DatagramPacket envpaquete = new DatagramPacket(mensaje_bytes,256);
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
            int puerto;
             InetAddress address;
-            byte[] mensaje2_bytes = new byte[1024];
+            byte[] mensaje2_bytes = new byte[256];
 
           
             // Recibimos el paquete
