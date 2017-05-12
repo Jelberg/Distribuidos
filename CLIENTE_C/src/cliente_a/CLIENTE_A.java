@@ -16,10 +16,17 @@ import java.net.InetAddress;
 public class CLIENTE_A{
 
  public static void main(String argv[]) {
+	 
+	 
  System.out.println("----Bienvenido----");
- System.out.println("Escriba INICIAR para establecer la conexion con el servidor");
+ /*
+ hola
+ System.out.println("Ingrese 1 para conectarse al servidor A");
+ System.out.println("Ingrese 2 para conectarse al servidor B");
+ System.out.println("Ingrese 3 para conectarse al servidor C");
+ */
+ System.out.println("Ingrese cantidad de productos deseados: ");
  BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
- 
 //Definimos el sockets, número de bytes del buffer, y mensaje.
  DatagramSocket socket;
  InetAddress address;
@@ -45,7 +52,7 @@ do {
  mensaje = in.readLine();
  mensaje_bytes = mensaje.getBytes();
  paquete = new DatagramPacket(mensaje_bytes,mensaje.length(),address,6000);
- socket.send(paquete);
+ socket.send(paquete);  // Manda el paquete 
  
 RecogerServidor_bytes = new byte[256];
  

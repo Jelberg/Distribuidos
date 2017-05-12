@@ -17,7 +17,7 @@ import java.net.SocketException;
  *
  * @author estefania
  */
-public class ProductorConsumidor {
+public class Tienda {
     private static Contenedor contenedor;
     private static Thread productor;
     private static Thread  consumidores;
@@ -56,7 +56,7 @@ public class ProductorConsumidor {
                     productor = new Thread(new Productor(contenedor, id_productor)); 
                     
                     
-                    byte[] mensaje_bytes = new byte[1024];
+                    byte[] mensaje_bytes = new byte[256];
                     String mensaje ="";
                     mensaje = new String(mensaje_bytes);
                     String mensajehilo ="";
@@ -65,8 +65,8 @@ public class ProductorConsumidor {
                      * Preparacion para recibir el paquete 
                      */
                     
-                    DatagramPacket paquete = new DatagramPacket(mensaje_bytes,1024);
-                    DatagramPacket envpaquete = new DatagramPacket(mensaje_bytes,1024);
+                    DatagramPacket paquete = new DatagramPacket(mensaje_bytes,256);
+                    DatagramPacket envpaquete = new DatagramPacket(mensaje_bytes,256);
                     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
                     int puerto;
                     InetAddress address;
@@ -117,13 +117,14 @@ public class ProductorConsumidor {
                    //Comprueba inventario para ver si se puede satisfacer 
                    if (cantidadInventario>=cantidadSolicitada){
                 	   System.out.println(">>Solicitud procesada<<");
+                           System.out.println("El cliente:" + idconsum+" Consume: "+mensaje);
                 	   // Disminuye el inventario
                 	   int actualizaInventario = cantidadInventario - cantidadSolicitada;
                 	   cantProductos.sobreEscribeUnValor( String.valueOf(actualizaInventario) , cantProductos.dirProductos);
                        System.out.println("Inventario disminuye de: "+cant +" a "+String.valueOf(actualizaInventario));
                        
                        //Se responde al usuario
-                       mensajehilo="Resivo: "+mensaje.replaceAll("\uFEFF", "").trim()+" productos y el inventario de la tienda queda en "
+                       mensajehilo="Recibo: "+mensaje.replaceAll("\uFEFF", "").trim()+" productos y el inventario de la tienda queda en "
                        +String.valueOf(contenedor.estadoInventario());
                        
                        mensaje2_bytes = mensajehilo.getBytes();
