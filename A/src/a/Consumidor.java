@@ -40,22 +40,10 @@ public class Consumidor implements Runnable
     {
         while(Boolean.TRUE)
         {   
-            System.out.println("El estado actual del inventario es: "+contenedor.estadoInventario());
-            System.out.println("Ingrese cantidad de productos a consumir");
-            
-            String entradaTeclado;
-            Scanner entradaEscaner = new Scanner (System.in);
-            entradaTeclado = entradaEscaner.nextLine (); 
-            int salida=Integer.valueOf(entradaTeclado);
-            //int salida=contenedor.get();
-            
-            
-            int actualizar=contenedor.productosSalientes(salida);
-            
-            if (contenedor.estadoInventario()==0){
+           
                 contenedor.get();
                 
-            }
+            
         
         }
         

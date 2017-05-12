@@ -134,7 +134,13 @@ public class Tienda {
                    
                    }
                    else{
-                    productor.start();
+                       System.out.println("No hay productos...Llamando a productor");
+                       mensajehilo="No hay productos...Pulse 1 para refrescar";
+                       mensaje2_bytes = mensajehilo.getBytes();
+                       envpaquete = new DatagramPacket(mensaje2_bytes,mensajehilo.length(),address,puerto);
+                       // realizamos el envio
+                       socket.send(envpaquete);
+                       productor.start();
                    }
                     //Obtenemos IP Y PUERTO
                    
