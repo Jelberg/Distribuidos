@@ -121,27 +121,43 @@ public class Tienda {
                 	   // Disminuye el inventario
                 	   int actualizaInventario = cantidadInventario - cantidadSolicitada;
                 	   cantProductos.sobreEscribeUnValor( String.valueOf(actualizaInventario) , cantProductos.dirProductos);
-                       System.out.println("Inventario disminuye de: "+cant +" a "+String.valueOf(actualizaInventario));
+                           System.out.println("Inventario disminuye de: "+cant +" a "+String.valueOf(actualizaInventario));
                        
-                       //Se responde al usuario
-                       mensajehilo="Recibo: "+mensaje.replaceAll("\uFEFF", "").trim()+" productos y el inventario de la tienda queda en "
-                       +String.valueOf(contenedor.estadoInventario());
+                            //Se responde al usuario
                        
-                       mensaje2_bytes = mensajehilo.getBytes();
-                       envpaquete = new DatagramPacket(mensaje2_bytes,mensajehilo.length(),address,puerto);
-                       // realizamos el envio
-                       socket.send(envpaquete);
+                            mensajehilo="Recibo: "+mensaje.replaceAll("\uFEFF", "").trim()+" productos y el inventario de la tienda queda en "
+                            +String.valueOf(contenedor.estadoInventario()+"\n"+"Ingrese cantidad de productos deseados");
+                       
+                            mensaje2_bytes = mensajehilo.getBytes();
+                            envpaquete = new DatagramPacket(mensaje2_bytes,mensajehilo.length(),address,puerto);
+                            // realizamos el envio
+                            socket.send(envpaquete);
                    
                    }
                    else{
                        System.out.println("No hay productos...Llamando a productor");
-                       mensajehilo="No hay productos...Pulse 1 para refrescar";
+                          /*        System.out.println("Se agregan 5 productos mas al inventario y se resta "+mensaje.replaceAll("\uFEFF", "").trim()
+                               +" de productos solicitados quedando en el inventario "+String.valueOf(contenedor.estadoInventario()));
+               */
+                  
+                       //mensajehilo="No hay productos...Pulse 0 para refrescar";
+                       //mensaje2_bytes = mensajehilo.getBytes();
+                       //envpaquete = new DatagramPacket(mensaje2_bytes,mensajehilo.length(),address,puerto);
+                       // realizamos el envio
+                       //socket.send(envpaquete);
+                       //consumidores.sleep(2500);
+                       productor.start();
+                       
+                       int actualizaInventario = cantidadInventario + 5 - cantidadSolicitada;
+                       cantProductos.sobreEscribeUnValor( String.valueOf(actualizaInventario), cantProductos.dirProductos);
+                   
+                       mensajehilo= "Recibo "+mensaje.replaceAll("\uFEFF", "").trim() + " inventario de la tienda queda en "+actualizaInventario;
                        mensaje2_bytes = mensajehilo.getBytes();
                        envpaquete = new DatagramPacket(mensaje2_bytes,mensajehilo.length(),address,puerto);
                        // realizamos el envio
                        socket.send(envpaquete);
-                       productor.start();
-                   }
+                       
+                 }
                     //Obtenemos IP Y PUERTO
                    
                    
