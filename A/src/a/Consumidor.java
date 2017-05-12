@@ -21,7 +21,7 @@ public class Consumidor implements Runnable
 
     /**
      * Constructor de la clase
-     * @param contenedor Contenedor común a los consumidores y el productor
+     * @param contenedor común a los consumidores y el productor
      * @param idconsumidor Identificador del consumidor
      */
     public Consumidor(Contenedor contenedor, int idconsumidor) 
@@ -35,6 +35,7 @@ public class Consumidor implements Runnable
     /**
      * Implementación de la hebra
      */
+    
     public void run() 
     {
         while(Boolean.TRUE)

@@ -6,18 +6,35 @@
 package a;
 
 import static java.lang.Boolean.FALSE;
+import a.ManejoArchivos;
+import a.ManejoArchivos;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.simple.JSONValue;
 
 /**
  *
  * @author estefania
  */
 public class Contenedor {
-    
+    ManejoArchivos inventario = new ManejoArchivos();
     private int contenido=0;
     private int total;
     private boolean contenedorlleno = Boolean.FALSE;
+    private String dir ="src//a//Files//cantidadProductos.jason";
     
-    //Monitores
+    /**
+    *
+    *      MONITORES
+    */
     
     public synchronized int get(){
         while (contenedorlleno==FALSE){
@@ -41,7 +58,7 @@ public class Contenedor {
         {
             try 
             {
-                
+                // IMPLEMENTAR EL MANEJO DEL ARCHIVO 
                 wait();
             } 
             catch (InterruptedException e) 
@@ -67,7 +84,8 @@ public class Contenedor {
     }
     
     public int estadoInventario(){
-    return contenido;
+    String actual =	inventario.leeLinea(inventario.dirProductos, 1);
+    return Integer.parseInt(actual);
     }
     
     public void prueba(){
@@ -75,5 +93,18 @@ public class Contenedor {
     
     }
     }
+    
+    /**
+     * Cantidad de productos disponibles en el contenedor 
+     * @throws IOException 
+     * @throws JSONException 
+     * 
+     */
+    
+    public void cantidadproductos() throws IOException  {
+    	ManejoArchivos a = new ManejoArchivos();
+    	String p = a.leeLinea( a.dirProductos,5);
+    	System.out.println(p);
+    };
     
 }
