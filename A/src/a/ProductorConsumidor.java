@@ -6,6 +6,7 @@
 package a;
 
 import java.io.BufferedReader;
+import a.ManejoArchivos;
 import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -24,6 +25,7 @@ public class ProductorConsumidor {
     private static int idconsum=0;
     private static int total=0;
     
+    
     /**
      * @param args the command line arguments
      */
@@ -33,6 +35,7 @@ public class ProductorConsumidor {
     
     public static void main(String[] args) 
     {  
+    	
         DatagramSocket socket;
         boolean fin = false;
         int id_productor = 1;
@@ -42,8 +45,9 @@ public class ProductorConsumidor {
         System.out.println("Iniciando Servidor...");
         socket = new DatagramSocket(6000);
         contenedor = new Contenedor();
-        int numero = contenedor.cantidadproductos();
-        System.out.println("Lo que devuelve :"+Integer.toString(numero));
+        
+        //contenedor.cantidadproductos();
+   
         System.out.println("El estado actual del inventario es: "+contenedor.estadoInventario());
                     do { 
                     
@@ -69,9 +73,9 @@ public class ProductorConsumidor {
                     byte[] mensaje2_bytes = new byte[1024];
 
 
-                    // Recibimos el paquete
+                 
                     socket.receive(paquete);
-                    
+                  
 
                     idconsum=1+idconsum;
                     int bytesRec=paquete.getLength();
@@ -93,18 +97,48 @@ public class ProductorConsumidor {
                     int long_men=mensaje.length();
                     int lon_ult_men=long_men-bytesRec;
                     
-                    System.out.println("Contenido del Paquete    : " + mensaje);
+                    // Aqui imprimira la cantidad de productos que quiere el usuario 
+                    System.out.println("PEDIDO DEL CLIENTE    : " + mensaje);
+               
                      //Obtenemos IP Y PUERTO
                     puerto = paquete.getPort();
                     address = paquete.getAddress();
-
+                    
+                   
+                       // Leer el .txt que tenga la cantidad de productos actuales 
+                    ManejoArchivos cantProductos = new ManejoArchivos();
+               
+                    String cant = cantProductos.leeLinea(cantProductos.dirProductos, 1);
+                
+                   int cantidadInventario= Integer.parseInt(cant);
+                   // Se le hace un tratamiento a mensaje ya que viene con un  caracter especial
+                   int cantidadSolicitada= Integer.parseInt(mensaje.replaceAll("\uFEFF", "").trim());
+                   
+                   //Comprueba inventario para ver si se puede satisfacer 
+                   if (cantidadInventario>=cantidadSolicitada){
+                	   System.out.println(">>Solicitud procesada<<");
+                	   // Disminuye el inventario
+                	   int actualizaInventario = cantidadInventario - cantidadSolicitada;
+                	   cantProductos.sobreEscribeUnValor( String.valueOf(actualizaInventario) , cantProductos.dirProductos);
+                       System.out.println("Inventario disminuye de: "+cant +" a "+String.valueOf(actualizaInventario));
                        
+                       //Se responde al usuario
+                       mensajehilo="Resivo: "+mensaje.replaceAll("\uFEFF", "").trim()+" productos y el inventario de la tienda queda en "
+                       +String.valueOf(contenedor.estadoInventario());
+                       
+                       mensaje2_bytes = mensajehilo.getBytes();
+                       envpaquete = new DatagramPacket(mensaje2_bytes,mensajehilo.length(),address,puerto);
+                       // realizamos el envio
+                       socket.send(envpaquete);
+                   
+                   }
+                   else{
                     productor.start();
-                 
+                   }
                     //Obtenemos IP Y PUERTO
                    
                    
-                    for(int i = 0; i < idconsum; i++)
+                 /*   for(int i = 0; i < idconsum; i++)
                             {
                             
                             consumidores.sleep(2500);
@@ -115,14 +149,14 @@ public class ProductorConsumidor {
                             
 
                                         }
-                    
+                   
                     
                      mensajehilo="El estado actual del inventario es: "+contenedor.estadoInventario();
                      mensaje2_bytes = mensajehilo.getBytes();
                      envpaquete = new DatagramPacket(mensaje2_bytes,mensajehilo.length(),address,puerto);
                      // realizamos el envio
                      socket.send(envpaquete);
-                   
+                   */
      
           } 
            

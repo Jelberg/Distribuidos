@@ -6,7 +6,8 @@
 package a;
 
 import static java.lang.Boolean.FALSE;
-
+import a.ManejoArchivos;
+import a.ManejoArchivos;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,7 +25,7 @@ import org.json.simple.JSONValue;
  * @author estefania
  */
 public class Contenedor {
-    
+    ManejoArchivos inventario = new ManejoArchivos();
     private int contenido=0;
     private int total;
     private boolean contenedorlleno = Boolean.FALSE;
@@ -83,7 +84,8 @@ public class Contenedor {
     }
     
     public int estadoInventario(){
-    return contenido;
+    String actual =	inventario.leeLinea(inventario.dirProductos, 1);
+    return Integer.parseInt(actual);
     }
     
     public void prueba(){
@@ -99,44 +101,10 @@ public class Contenedor {
      * 
      */
     
-    public int cantidadproductos() throws IOException, JSONException {
-    	File file = new File(dir);
-    	JSONObject obj = new JSONObject();
-    	if (!file.exists()){
-    			file.createNewFile();
-    			System.out.println("Aquiiiii entroooo");
-    			obj.put("Cantidad productos", "0");
-    			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-                BufferedWriter bw = new BufferedWriter(fw);
-                String jsonText = obj.toString();
-                bw.write(jsonText);
-                bw.close();
-    			return 0;
-    	}else{ // Si el archivo existe
-    		BufferedReader br = null;
-            String jsonADecodificar = "";
-            try{
-    		 String sCurrentLine;
-    		 
-    		 br = new BufferedReader(new FileReader(dir));   
-             System.out.println(br);
-             while ((sCurrentLine = br.readLine()) != null) {
-                 jsonADecodificar = sCurrentLine;
-                 
-             }
-             int numero = (int)JSONValue.parse(jsonADecodificar);
-             return numero;             
-            }
-            catch(IOException e) {
-            	 e.printStackTrace();          	
-            }
-            finally {         
-                    if (br != null)br.close();
-             
-    	}    	
-    	}
-		return -1;
-    	
+    public void cantidadproductos() throws IOException  {
+    	ManejoArchivos a = new ManejoArchivos();
+    	String p = a.leeLinea( a.dirProductos,5);
+    	System.out.println(p);
     };
     
 }
