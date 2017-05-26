@@ -37,6 +37,7 @@ public class Tienda {
     {  
     	
         DatagramSocket socket;
+        long iPart;
         boolean fin = false;
         int id_productor = 1;
         
@@ -146,10 +147,16 @@ public class Tienda {
                        // realizamos el envio
                        //socket.send(envpaquete);
                        //consumidores.sleep(2500);
-                       productor.start();
                        
-                       int actualizaInventario = cantidadInventario + 5 - cantidadSolicitada;
-                       cantProductos.sobreEscribeUnValor( String.valueOf(actualizaInventario), cantProductos.dirProductos);
+                       // Es el multiplo necesario para llenar el inventario
+                       double cantInv = ((cantidadSolicitada - cantidadInventario)/5 );
+                       iPart = ((long) cantInv)+1;
+                       	cantProductos.sobreEscribeUnValor(String.valueOf(iPart), cantProductos.dirMultiplo);		
+                       				productor.start();
+                       			
+                       int actualizaInventario = cantidadInventario + 
+			5*Integer.parseInt(String.valueOf(iPart),cantProductos.dirMultiplo) - 				cantidadSolicitada;
+                       cantProductos.sobreEscribeUnValor(String.valueOf(actualizaInventario), cantProductos.dirProductos);
                    
                        mensajehilo= "Recibo "+mensaje.replaceAll("\uFEFF", "").trim() + " inventario de la tienda queda en "+actualizaInventario;
                        mensaje2_bytes = mensajehilo.getBytes();
