@@ -67,7 +67,7 @@ while(true){
                 try {
                 socket = new DatagramSocket();
 
-               address=InetAddress.getByName("192.168.0.103");
+               address=InetAddress.getByName("localhost");
 
                do {
                 mensaje = in.readLine();

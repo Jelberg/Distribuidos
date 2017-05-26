@@ -154,8 +154,8 @@ public class Tienda {
                        	cantProductos.sobreEscribeUnValor(String.valueOf(iPart), cantProductos.dirMultiplo);		
                        				productor.start();
                        			
-                       int actualizaInventario = cantidadInventario + 
-			5*Integer.parseInt(String.valueOf(iPart),cantProductos.dirMultiplo) - 				cantidadSolicitada;
+                       int actualizaInventario = cantidadInventario +   
+			5*Integer.parseInt(cantProductos.leeLinea(cantProductos.dirMultiplo, 1)) - cantidadSolicitada;
                        cantProductos.sobreEscribeUnValor(String.valueOf(actualizaInventario), cantProductos.dirProductos);
                    
                        mensajehilo= "Recibo "+mensaje.replaceAll("\uFEFF", "").trim() + " inventario de la tienda queda en "+actualizaInventario;
