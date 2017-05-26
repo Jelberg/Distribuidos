@@ -39,7 +39,8 @@ import java.util.Random;
     {
         while(Boolean.TRUE)
         {
-            int poner =  cantidad;
+ManejoArchivos man = new ManejoArchivos();
+            int poner =  cantidad*Integer.parseInt(man.leeLinea(man.dirMultiplo,1));
             contenedor.put(poner);
             System.out.println("El productor " + idproductor + " pone: " + poner);
             contenedor.productosEntrantes(poner);

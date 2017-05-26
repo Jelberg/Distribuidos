@@ -13,7 +13,7 @@ import java.io.IOException;
 public class ManejoArchivos {
 	public String dirProductos ="src//a//Files//cantidadProductos.txt";
 	public String nombreArchivoProductos = "cantidadProductos.json"; 
-	
+	public String dirMultiplo ="src//a//Files//cantidadMultiplo.txt";
 	
 	/**
 	 * Metodo Sobre escribe en un fichero el valor de la linea
