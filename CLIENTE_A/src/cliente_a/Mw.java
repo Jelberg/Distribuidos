@@ -47,7 +47,7 @@ public class Mw {
                  try {
                  socket = new DatagramSocket();
 
-                address=InetAddress.getByName("localhost");
+                address=InetAddress.getByName("25.11.184.145");
 
                 do {
                   if ("fin".equals(mensaje)){

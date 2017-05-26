@@ -24,6 +24,9 @@ while(true){
     
  System.out.println("--------------Bienvenido---------------");
  System.out.println();
+ 
+ 
+ 
  System.out.println("Ingrese A para conectarse al servidor A");
  System.out.println("Ingrese B para conectarse al servidor B");
  System.out.println("Ingrese C para conectarse al servidor C");
@@ -32,7 +35,7 @@ while(true){
  Scanner entradaEscaner = new Scanner (System.in); //Creación de un objeto Scanner
  entradaTeclado = entradaEscaner.nextLine ();
  System.out.println(entradaTeclado);
-    if(entradaTeclado!="A"){
+    if(!"A".equals(entradaTeclado)){
 
                 //Llamando a middleware
                 Mw middle= new Mw();
@@ -64,7 +67,7 @@ while(true){
                 try {
                 socket = new DatagramSocket();
 
-               address=InetAddress.getByName("localhost");
+               address=InetAddress.getByName("192.168.0.103");
 
                do {
                 mensaje = in.readLine();
