@@ -26,7 +26,7 @@ import org.jdom.output.XMLOutputter;
 public class controllerColors {
      private Element root;
 
-    private String fileLocation = "/home/elberg/Escritorio/colors.xml";
+    private String fileLocation = util.fileLocation;
 
     public controllerColors() throws IOException {
         
