@@ -1,0 +1,11 @@
+* En el proyecto hay que ubicar en la maquina el XML colors y cambiar la ruta
+* En la carpeta estan las librerias para el manejo del xml
+
+
+Arreglar: Busqueda por fecha (Me da error XD)
+
+Falta : 
+*Coordinador de Replicas Con (RMI)
+*Servidos de Replicas
+*Implementar el commit en 2 fases 
+          

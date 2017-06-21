@@ -1,0 +1,18 @@
+<root>
+  <Colores>
+    <color>Azul</color>
+    <fecha>12-12-12</fecha>
+  </Colores>
+  <Colores>
+    <color>AMARILLO</color>
+    <fecha>12-12-12</fecha>
+  </Colores>
+  <Colores>
+    <color>ROJO</color>
+    <fecha>13-13-13</fecha>
+  </Colores>
+  <Colores>
+    <color>TURQUESA</color>
+    <fecha>13-12-13</fecha>
+  </Colores>
+</root>

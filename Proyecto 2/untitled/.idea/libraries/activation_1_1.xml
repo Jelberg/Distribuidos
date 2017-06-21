@@ -1,0 +1,55 @@
+<component name="libraryTable">
+  <library name="activation-1.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/activation-1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/commons-codec-1.9.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/commons-lang3-3.4.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/groovy-2.4.6.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/groovy-json-2.4.6.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/groovy-xml-2.4.6.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/gson-2.3.1.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/gson-2.8.0.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/hamcrest-library-1.3.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/httpclient-4.5.2.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/httpcore-4.4.4.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/httpmime-4.5.1.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jackson-annotations-2.5.0.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jackson-core-2.5.3.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jackson-databind-2.5.3.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jackson-module-jaxb-annotations-2.5.3.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.annotation.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.ejb.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.jms.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.persistence.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.resource.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.servlet.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.servlet.jsp.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.servlet.jsp.jstl.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.ws.rs-api-2.0.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/javax.transaction.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jaxb-api-2.2.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jersey-client.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jersey-common.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jersey-container-servlet-core.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jersey-container-servlet.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/jersey-server.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/json-path-3.0.2.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/xml-path-3.0.2.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/tagsoup-1.2.1.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/stax-api-1.0-2.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/rest-assured-common-3.0.2.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/rest-assured-3.0.3.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/rest-assured-3.0.2.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/postgresql-42.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/mockito-core-2.7.22.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/mail.jar!/" />
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/junit-4.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Escritorio/REPOSITORIO/Fit-UCAB/WebServicesFitUCAB/lib/junit-4.12-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

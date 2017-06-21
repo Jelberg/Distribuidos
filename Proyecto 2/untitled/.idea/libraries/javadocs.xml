@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javadocs">
+    <CLASSES />
+    <JAVADOC>
+      <root url="file://$USER_HOME$/glassfish-4.1/pkg/javadocs" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
