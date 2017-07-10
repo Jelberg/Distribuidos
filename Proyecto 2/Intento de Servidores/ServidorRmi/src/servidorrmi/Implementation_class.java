@@ -5,8 +5,13 @@
  */
 package servidorrmi;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,37 +23,55 @@ public class Implementation_class extends UnicastRemoteObject implements Remote_
    public Implementation_class() throws RemoteException{
        super(); 
     }
-   
- /* public static void main(String[] args)
-  {
-    try
-    {
-      MiInterfazRemoto mir = new Implementation_class();
-      java.rmi.Naming.rebind(“//” + java.net.InetAddress.getLocalHost().getHostAddress() +
-                              ”:” + args[0] + “/PruebaRMI”, mir);
-    }
-    catch (Exception e)
-    {
-    }
-  }*/
 
     @Override
     public String ReplicarObjetos(String accion) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            try {
+            int contador_votos = 0;
+            
+        //PARA CONECTAR CON LOS SERVERS DE REPCLICA Y RESTAURACION
+  
+        while(contador_votos < 2){//enivio VOTE request a los dos servidores de réplicas
+        String parametros[] = Listener.ipReplicas[contador_votos].split(":");
+        
+        Socket replicar = new Socket(parametros[0],Integer.parseInt(parametros[1]));
+        
+        ObjectOutputStream global = new ObjectOutputStream(replicar.getOutputStream());
+        
+        global.writeUTF("VOTE_REQUEST :"+accion);
+        
+        global.close();
+        
+        replicar.close();
+        
+        contador_votos++;
+    
+        }
+
+        
+        } catch (IOException ex) {
+            Logger.getLogger(Implementation_class.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "Accion: "+accion;
     }
 
     @Override
     public String RestaurarObjetos(String accion) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             return "Accion: "+accion;
     }
 
     @Override
     public Object HacerReplica() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+      Object a = new Color("Un Objeto de la Clase","pablo");
+      //aqui tengo que enviar el XML que está del lado del servidor de app
+        
+        return a;   
+        
     }
 
     @Override
     public String RecibirObjetos() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return "Objetos Recibidos";
     }
 }
